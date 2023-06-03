@@ -147,19 +147,19 @@ img {
     line-height: 1.5;
     letter-spacing: 0.02em;
     color: var(--main-color);
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .top-link.current::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -1px;
     left: 0;
     display: block;
     width: 100%;
     height: 4px;
     background-color: #404BBF;
-    border-radius: 20px;
+    border-radius: 2px;
 }
 
 .top-link:hover,
@@ -175,7 +175,7 @@ color: var(--background-hover-color);
     letter-spacing: 0.02em;
     align-items: center;
     color: var(--text-color);
-    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .address-link:hover,
@@ -368,11 +368,13 @@ color: var(--background-hover-color);
     display: flex;
     margin-top: 72px;
     gap: 24px;
+    
 }
 
 .customers-item {
     width: 168px;
     height: 88px;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 
@@ -385,7 +387,6 @@ color: var(--background-hover-color);
     color: var(--icon-color);
     border: 1px solid #8E8F99;
     border-radius: 4px;
-    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .customers-icon:hover,
@@ -487,7 +488,10 @@ color: var(--background-hover-color);
     color: var(--iris-color);
     cursor: pointer;
     border-radius: 4px;
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+        box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .filter-btn:hover,
@@ -548,7 +552,8 @@ color: var(--background-hover-color);
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.pictures-item:hover .overlay-text {
+.pictures-item:hover .overlay-text,
+.pictures-item:focus .overlay-text {
     transform: translateY(0);
 }
 
@@ -564,7 +569,7 @@ color: var(--background-hover-color);
     width: 100%;
     height: 100%;
     background-color:  rgba(46, 47, 66, 0.4);
-    transition: opacity 300ms linear, visibility 300ms linear;
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal {
@@ -578,6 +583,8 @@ color: var(--background-hover-color);
     background-color: #FCFCFC;
     border-radius: 4px;
     padding: 24px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .backdrop.is-hidden .modal {
@@ -585,9 +592,11 @@ color: var(--background-hover-color);
 }
 
 .modal-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
     width: 24px;
     height: 24px;
-    margin-left: auto;
     background-color: #E7E9FC;
     fill: #2E2F42;
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -596,7 +605,7 @@ color: var(--background-hover-color);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .is-hidden {
@@ -605,8 +614,13 @@ color: var(--background-hover-color);
     pointer-events: none;
 }
 
+.modal-close-icon {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .modal-close:hover,
 .modal-close:focus {
     fill: #FFFFFF;;
     background-color:#404BBF;
+    border: none;
 }
